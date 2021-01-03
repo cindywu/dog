@@ -17,14 +17,22 @@
    component])
 
 (defc main-page [req]
-  [:p (str req)])
+  [:p (str req)]
+  [:div {:id "cv-div"
+         :class "cv-component-div"}
+    [:p "'89 born on new years day"]
+    [:p "'95 move from northgate to bellevue"]
+    [:p "'95 kindergarten at somerset elementary"]
+    [:p "'96 first grade at eton school"]
+    [:p "'97 back at somerset for second grade"]
+    [:p "'00 graduate elementary school"]])
 
 (defc friends-page []
-  [:p "This is the friends page, it is empty, yet"])
+  [:p "'09 denny befriends cindy"])
 
 (defroutes app
-  (GET "/" [req] (render-static-markup (template "Hello, World!" (main-page req))))
-  (GET "/friends" [] (render-static-markup (template "No friends, yet :(" (friends-page)))))
+  (GET "/" [req] (render-static-markup (template "hi, i am cindy" (main-page req))))
+  (GET "/friends" [] (render-static-markup (template "cindy has one friend" (friends-page)))))
 
 (defn -main
   "I don't do a whole lot ... yet."
